@@ -81,7 +81,7 @@ jobs:
           pipewire-jack-audio-connection-kit-devel \
           glslang-devel \
           mono-devel \
-          mono-complete \
+          mono-msbuild \
           pipewire-devel
 
     - name: 'Checkout Repository'
