@@ -40,7 +40,7 @@ jobs:
     - name: 'Install build dependencies'
       run: |
         dnf install ${{ env.DNF_OPTS }} \
-          gcc \
+          clang \
           git-core \
           cmake \
           alsa-lib-devel \
