@@ -13,7 +13,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: rockylinux:8-minimal
+    container: fedora:latest
     steps:
     - name: 'Set environment variables'
       run: |
