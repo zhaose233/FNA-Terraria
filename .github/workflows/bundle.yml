@@ -245,7 +245,7 @@ jobs:
         -D enable_d3d9=false \
         -D enable_d3d10=false \
         -D enable_d3d11=true \
-        -D dxvk_native_wsi=sdl3 \
+        -D native_sdl3=enabled \
         build
 
     - name: 'Build dxvk'
