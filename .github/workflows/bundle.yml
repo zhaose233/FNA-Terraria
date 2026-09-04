@@ -19,7 +19,7 @@ jobs:
       run: |
         echo "DNF_OPTS=--assumeyes --setopt=install_weak_deps=0 --nodocs" >> $GITHUB_ENV
         echo "NAME=FNA-Terraria-${{ env.BUNDLE_VERSION }}+$(echo $GITHUB_SHA | cut -c 1-7)" >> $GITHUB_ENV
-        echo "PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig:$PKG_CONFIG_PATH" >> $GITHUB_ENV
+#        echo "PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig:$PKG_CONFIG_PATH" >> $GITHUB_ENV
 
 #        echo "PATH=/opt/rh/gcc-toolset-10/root/usr/bin:$PATH" >> $GITHUB_ENV
     # - name: 'Add external repositories'
