@@ -22,24 +22,24 @@ jobs:
         echo "PATH=/opt/rh/gcc-toolset-10/root/usr/bin:$PATH" >> $GITHUB_ENV
         echo "PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig:$PKG_CONFIG_PATH" >> $GITHUB_ENV
 
-    - name: 'Add external repositories'
-      run: |
-        rpm -i \
-          https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm \
-          https://pkgs.sysadmins.ws/el8/base/x86_64/raven-release.el8.noarch.rpm
-        rpm --import https://download.mono-project.com/repo/xamarin.gpg
-        curl https://download.mono-project.com/repo/centos8-stable.repo | tee /etc/yum.repos.d/mono-centos8-stable.repo
-        sed -i 's/enabled=0/enabled=1/' /etc/yum.repos.d/Rocky-PowerTools.repo
-        echo 'priority=1' | tee -a /etc/yum.repos.d/Rocky-*.repo
-        sed -i '11i priority=1' /etc/yum.repos.d/epel.repo
-        sed -i '7i priority=99' /etc/yum.repos.d/raven.repo
-        sed -i '15i priority=99' /etc/yum.repos.d/raven.repo
-        sed -i '23i priority=99' /etc/yum.repos.d/raven.repo
-        sed -i '31i priority=99' /etc/yum.repos.d/raven.repo
+    # - name: 'Add external repositories'
+    #   run: |
+    #     rpm -i \
+    #       https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm \
+    #       https://pkgs.sysadmins.ws/el8/base/x86_64/raven-release.el8.noarch.rpm
+    #     rpm --import https://download.mono-project.com/repo/xamarin.gpg
+    #     curl https://download.mono-project.com/repo/centos8-stable.repo | tee /etc/yum.repos.d/mono-centos8-stable.repo
+    #     sed -i 's/enabled=0/enabled=1/' /etc/yum.repos.d/Rocky-PowerTools.repo
+    #     echo 'priority=1' | tee -a /etc/yum.repos.d/Rocky-*.repo
+    #     sed -i '11i priority=1' /etc/yum.repos.d/epel.repo
+    #     sed -i '7i priority=99' /etc/yum.repos.d/raven.repo
+    #     sed -i '15i priority=99' /etc/yum.repos.d/raven.repo
+    #     sed -i '23i priority=99' /etc/yum.repos.d/raven.repo
+    #     sed -i '31i priority=99' /etc/yum.repos.d/raven.repo
 
     - name: 'Install build dependencies'
       run: |
-        microdnf install ${{ env.DNF_OPTS }} --enablerepo=raven-extras \
+        dnf install ${{ env.DNF_OPTS }} \
           gcc-toolset-10 \
           git-core \
           cmake \
